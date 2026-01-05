@@ -10,32 +10,6 @@
     <meta name="keywords" content="Junayed Hasan, DevOps, Network Engineer, NFV, Resource Contention, Virtual Network Functions, Linux, Shell Scripting, CSE, Bangladesh, Recyclable Materials Management System">
     <meta name="author" content="Junayed Hasan">
     
-    <!-- Open Graph / Social Media SEO -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Junayed Hasan | Network • Research • DevOps">
-    <meta property="og:description" content="Infrastructure-first mindset professional focusing on resilient systems, NFV performance, and automation.">
-    <meta property="og:url" content="https://www.junayed.com">
-    
-    <!-- JSON-LD Structured Data for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Junayed Hasan",
-      "jobTitle": "Network and DevOps Engineer",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bogura",
-        "addressCountry": "Bangladesh"
-      },
-      "url": "https://www.junayed.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/junayed-hasan-1bb3b11a3",
-        "https://github.com/junayed"
-      ]
-    }
-    </script>
-    
     <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,6 +28,17 @@
                         sans: ['Space Grotesk', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
+                    animation: {
+                        'float': 'float 20s ease-in-out infinite',
+                        'float-delayed': 'float 25s ease-in-out infinite reverse',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translate(0, 0)' },
+                            '50%': { transform: 'translate(30px, 50px)' },
+                        }
+                    }
                 }
             }
         }
@@ -63,31 +48,142 @@
         body {
             background-color: #020617;
             color: #f8fafc;
+            overflow-x: hidden;
+            cursor: default; /* Custom cursor could be added here later */
+        }
+
+        /* Moving Background Gradient Blobs */
+        .blob {
+            position: fixed;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(99, 102, 241, 0.2);
+            animation: float 25s infinite alternate;
+        }
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(16, 185, 129, 0.15);
+            animation: float-delayed 30s infinite alternate;
+        }
+
+        /* Network Canvas */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Global Spotlight Effect */
+        #global-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(99, 102, 241, 0.08), transparent 40%);
+            mix-blend-mode: screen;
+        }
+
+        /* Cyber Grid Background - Full Page */
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%); 
+            /* mask-image keeps it subtle in center, fading out */
+            z-index: 0;
+            pointer-events: none;
+            transform: perspective(1000px) rotateX(20deg) scale(1.5);
+            animation: grid-pan 60s linear infinite;
+        }
+        
+        @keyframes grid-pan {
+            0% { transform: perspective(1000px) rotateX(20deg) scale(1.5) translateY(0); }
+            100% { transform: perspective(1000px) rotateX(20deg) scale(1.5) translateY(50px); }
         }
 
         .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+        
+        /* Interactive Card Border Glow on Hover */
+        .glass::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(120deg, transparent, rgba(99, 102, 241, 0.3), transparent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .glass:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        
+        .glass:hover::after {
+            opacity: 1;
         }
 
         .gradient-text {
             background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #2dd4bf 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient-shift 5s linear infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+            background: rgba(15, 23, 42, 0.6);
+            box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.15);
         }
 
         .section-padding {
             padding: 4rem 1rem;
+            position: relative;
+            z-index: 10;
         }
         @media (min-width: 768px) {
             .section-padding {
@@ -95,33 +191,43 @@
             }
         }
 
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 1;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
-            position: absolute;
-            bottom: 100%;
-            animation: scanline 8s linear infinite;
-            pointer-events: none;
+        .cursor-blink {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: #10b981;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: blink 0.8s step-end infinite;
         }
-
-        @keyframes scanline {
-            0% { bottom: 100%; }
-            100% { bottom: -100%; }
+        @keyframes blink {
+            50% { opacity: 0; }
         }
-
-        .profile-hex {
-            clip-path: circle(50% at 50% 50%);
+        
+        /* Pulse for timeline dots */
+        .timeline-dot {
+            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
         }
     </style>
 </head>
-<body class="selection:bg-primary/30 selection:text-primary-foreground">
+<body class="selection:bg-primary/30 selection:text-primary-foreground relative">
+
+    <!-- Global Interactive Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="cyber-grid"></div>
+    <canvas id="network-canvas"></canvas>
+    <div id="global-spotlight"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 px-3 py-4 md:px-6">
-        <div class="max-w-6xl mx-auto glass rounded-2xl px-4 py-3 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto glass rounded-2xl px-4 py-3 flex justify-between items-center bg-slate-900/40">
             <div class="flex items-center gap-2">
                 <span class="text-primary font-bold text-lg md:text-xl tracking-tight">JH</span>
                 <span class="hidden lg:inline text-slate-500 font-mono text-[10px] tracking-[0.2em] uppercase">Junayed Hasan</span>
@@ -137,50 +243,53 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 pb-12">
-        <div class="scanline"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.1),transparent_50%)]"></div>
-        
+    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 pb-12 z-10">
         <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
-            <!-- Profile Image Placeholder -->
-            <div class="mb-6 md:mb-8 relative inline-block">
-                <div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
-                <div class="relative w-28 h-28 md:w-40 md:h-40 rounded-full border-2 border-primary/30 p-1 bg-slate-900 shadow-2xl">
+            <!-- Profile Image -->
+            <div class="mb-6 md:mb-8 relative inline-block group">
+                <div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse group-hover:bg-primary/40 transition-all duration-500"></div>
+                <div class="relative w-28 h-28 md:w-40 md:h-40 rounded-full border-2 border-primary/30 p-1 bg-slate-900 shadow-2xl overflow-hidden">
                     <img 
                         src="IMG_20251127_011356.png" 
                         alt="Junayed Hasan" 
-                        class="w-full h-full object-cover rounded-full profile-hex transition-transform duration-300 hover:scale-105"
-
+                        class="w-full h-full object-cover rounded-full profile-hex transition-transform duration-500 hover:scale-110"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Junayed+Hasan&background=020617&color=6366f1&size=200'"
                     >
                 </div>
             </div>
 
-            <p class="font-mono text-primary text-[10px] md:text-sm tracking-[0.3em] uppercase mb-4">Infrastructure & Research</p>
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight mb-6 leading-tight">
+            <p class="font-mono text-primary text-[10px] md:text-sm tracking-[0.3em] uppercase mb-4 opacity-80">Infrastructure & Research</p>
+            
+            <!-- Static Strong Title -->
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight mb-6">
                 Junayed <span class="gradient-text">Hasan</span>
             </h1>
-            <h2 class="text-lg md:text-2xl text-slate-400 font-light mb-10 tracking-wide">
-                Network <span class="mx-1 md:mx-2 text-slate-700">|</span> Research <span class="mx-1 md:mx-2 text-slate-700">|</span> DevOps
+
+            <!-- Dynamic Role Scrambler -->
+            <h2 class="text-lg md:text-2xl text-slate-300 font-light mb-10 tracking-wide h-12 flex justify-center items-center">
+                <span class="text-slate-500 mr-3 text-sm md:text-base font-mono">//</span>
+                <span id="role-scrambler" class="text-accent font-mono font-medium text-xl md:text-3xl"></span>
+                <span class="cursor-blink"></span>
             </h2>
             
-            <!-- Social Icons Row -->
+            <!-- Social Icons -->
             <div class="flex justify-center gap-6 md:gap-8 mb-12">
-                <a href="mailto:jh786760@gmail.com" target="_blank" aria-label="Gmail" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125">
+                <a href="mailto:jh786760@gmail.com" target="_blank" aria-label="Gmail" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
                     <i class="fas fa-envelope"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" target="_blank" aria-label="LinkedIn" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125">
+                <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" target="_blank" aria-label="LinkedIn" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/jhasanbauetcse" target="_blank" aria-label="GitHub" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125">
+                <a href="https://github.com/jhasanbauetcse" target="_blank" aria-label="GitHub" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://facebook.com/jhasan25" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125">
+                <a href="https://facebook.com/jhasan25" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-facebook"></i>
                 </a>
             </div>
 
             <div class="flex justify-center">
-                <a href="#about" class="animate-bounce text-slate-600">
+                <a href="#about" class="animate-bounce text-slate-600 hover:text-primary transition-colors">
                     <i class="fas fa-chevron-down"></i>
                 </a>
             </div>
@@ -188,16 +297,16 @@
     </header>
 
     <!-- Summary Section -->
-    <section id="about" class="section-padding bg-slate-950/50">
+    <section id="about" class="section-padding">
         <div class="max-w-4xl mx-auto">
-            <div class="glass p-6 md:p-12 rounded-3xl">
-                <h3 class="font-mono text-primary mb-6 flex items-center gap-2">
+            <div class="glass p-6 md:p-12 rounded-3xl relative overflow-hidden group">
+                <h3 class="font-mono text-primary mb-6 flex items-center gap-2 relative z-10">
                     <span class="w-8 h-[1px] bg-primary"></span> Profile Summary
                 </h3>
-                <p class="text-lg md:text-xl text-slate-300 leading-relaxed">
-                    I have an <span class="text-white font-semibold underline decoration-primary/50 underline-offset-4">infrastructure-first mindset</span>—understanding traffic flow, system behavior, and deployment mechanics rather than relying on tools alone. My work is focused on computer networking, Linux systems, and DevOps, with a passion for building scalable, reliable digital services.
+                <p class="text-lg md:text-xl text-slate-300 leading-relaxed relative z-10">
+                    I have an <span class="text-white font-semibold underline decoration-primary/50 underline-offset-4 decoration-2">infrastructure-first mindset</span>—understanding traffic flow, system behavior, and deployment mechanics rather than relying on tools alone. My work is focused on computer networking, Linux systems, and DevOps, with a passion for building scalable, reliable digital services.
                 </p>
-                <p class="mt-6 text-slate-400 text-sm md:text-base">
+                <p class="mt-6 text-slate-400 text-sm md:text-base relative z-10">
                     Actively building depth in computer networks, cloud networking, and Linux administration with the long-term goal of operating production-grade systems.
                 </p>
             </div>
@@ -210,24 +319,36 @@
             <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Core <span class="text-primary">Expertise</span></h3>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover">
-                    <i class="fas fa-network-wired text-primary text-2xl md:text-3xl mb-4 md:mb-6"></i>
-                    <h4 class="text-lg md:text-xl font-bold mb-3">Computer Networks</h4>
+                <!-- Card 1 -->
+                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <i class="fas fa-network-wired text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Computer Networks</h4>
                     <p class="text-slate-400 text-xs md:text-sm">OSI models, traffic flow, routing fundamentals, and network architecture.</p>
                 </div>
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover">
-                    <i class="fab fa-linux text-primary text-2xl md:text-3xl mb-4 md:mb-6"></i>
-                    <h4 class="text-lg md:text-xl font-bold mb-3">Linux Mastery</h4>
+                <!-- Card 2 -->
+                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <i class="fab fa-linux text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Linux Mastery</h4>
                     <p class="text-slate-400 text-xs md:text-sm">System administration, terminal fluency, and server management.</p>
                 </div>
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover">
-                    <i class="fas fa-terminal text-primary text-2xl md:text-3xl mb-4 md:mb-6"></i>
-                    <h4 class="text-lg md:text-xl font-bold mb-3">Shell Scripting</h4>
+                <!-- Card 3 -->
+                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <i class="fas fa-terminal text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Shell Scripting</h4>
                     <p class="text-slate-400 text-xs md:text-sm">Bash automation and streamlining infrastructure workflows.</p>
                 </div>
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover">
-                    <i class="fas fa-infinity text-primary text-2xl md:text-3xl mb-4 md:mb-6"></i>
-                    <h4 class="text-lg md:text-xl font-bold mb-3">DevOps Tools</h4>
+                <!-- Card 4 -->
+                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <i class="fas fa-infinity text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">DevOps Tools</h4>
                     <p class="text-slate-400 text-xs md:text-sm">Exploration of CI/CD, deployment mechanics, and cloud-native concepts.</p>
                 </div>
             </div>
@@ -235,12 +356,12 @@
     </section>
 
     <!-- Research Interests Section -->
-    <section id="research" class="section-padding bg-slate-950/50">
+    <section id="research" class="section-padding">
         <div class="max-w-5xl mx-auto">
             <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Research <span class="text-primary">Interests</span></h3>
-            <div class="glass p-6 md:p-12 rounded-3xl border-l-4 border-l-primary">
+            <div class="glass p-6 md:p-12 rounded-3xl border-l-4 border-l-primary card-hover">
                 <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <div class="bg-primary/10 p-4 rounded-2xl shrink-0">
+                    <div class="bg-primary/10 p-4 rounded-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-microscope text-2xl md:text-3xl text-primary"></i>
                     </div>
                     <div>
@@ -260,22 +381,23 @@
         <div class="max-w-5xl mx-auto">
             <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Featured <span class="text-primary">Projects</span></h3>
             <div class="grid gap-6 md:gap-8">
-                <div class="glass p-6 md:p-8 rounded-3xl card-hover flex flex-col md:flex-row gap-6 md:gap-8 items-center text-center md:text-left">
-                    <div class="w-full md:w-1/3 aspect-video bg-slate-900 rounded-xl flex items-center justify-center border border-white/5 shrink-0">
-                        <i class="fab fa-android text-5xl md:text-6xl text-accent opacity-20"></i>
+                <div class="glass p-6 md:p-8 rounded-3xl card-hover flex flex-col md:flex-row gap-6 md:gap-8 items-center text-center md:text-left group">
+                    <div class="w-full md:w-1/3 aspect-video bg-slate-900 rounded-xl flex items-center justify-center border border-white/5 shrink-0 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
+                        <i class="fab fa-android text-5xl md:text-6xl text-accent opacity-50 group-hover:scale-110 group-hover:opacity-80 transition-all duration-500"></i>
                     </div>
                     <div class="w-full md:w-2/3">
                         <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start mb-4 gap-2">
-                            <h4 class="text-xl md:text-2xl font-bold">Recyclable Materials Management System</h4>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-[10px] font-mono whitespace-nowrap">Mobile App</span>
+                            <h4 class="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">Recyclable Materials Management System</h4>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-[10px] font-mono whitespace-nowrap border border-accent/20">Mobile App</span>
                         </div>
                         <p class="text-slate-400 mb-6 text-sm md:text-base">
                             A comprehensive Android application built with <span class="text-white">Java</span> designed to streamline the lifecycle of recyclable waste. Features include user-friendly inventory management and system tracking for sustainable material handling.
                         </p>
                         <div class="flex flex-wrap justify-center md:justify-start gap-2">
-                            <span class="text-[10px] md:text-xs font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded">Java</span>
-                            <span class="text-[10px] md:text-xs font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded">Android Studio</span>
-                            <span class="text-[10px] md:text-xs font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded">SQLite</span>
+                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">Java</span>
+                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">Android Studio</span>
+                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">SQLite</span>
                         </div>
                     </div>
                 </div>
@@ -284,37 +406,37 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="section-padding bg-slate-950/50">
+    <section id="education" class="section-padding">
         <div class="max-w-3xl mx-auto">
             <h3 class="text-2xl md:text-3xl font-bold mb-16 text-center">Academic <span class="text-primary">Timeline</span></h3>
             
             <div class="relative border-l-2 border-slate-800 ml-6 space-y-12">
                 <!-- University -->
-                <div class="relative pl-8 md:pl-10">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_rgba(99,102,241,0.6)]"></div>
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-primary rounded-full timeline-dot group-hover:bg-accent transition-colors"></div>
                     <div>
-                        <span class="text-primary font-mono text-[10px] md:text-sm uppercase tracking-tighter">July 2023-Present</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight">BSc in Computer Science Engineering</h4>
+                        <span class="text-primary font-mono text-[10px] md:text-sm uppercase tracking-tighter group-hover:text-accent transition-colors">July 2023-Present</span>
+                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-white transition-colors">BSc in Computer Science Engineering</h4>
                         <p class="text-slate-400 text-sm md:text-lg">Bangladesh Army University of Engineering and Technology (BAUET)</p>
                     </div>
                 </div>
 
                 <!-- HSC -->
-                <div class="relative pl-8 md:pl-10">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full"></div>
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full group-hover:bg-primary transition-colors"></div>
                     <div>
                         <span class="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-tighter">2020 - 2022</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight">Higher School Certificate (Science)</h4>
+                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-slate-300 transition-colors">Higher School Certificate (Science)</h4>
                         <p class="text-slate-400 text-sm md:text-lg">Bogura Cantonment Public School & College (BCPSC)</p>
                     </div>
                 </div>
 
                 <!-- SSC -->
-                <div class="relative pl-8 md:pl-10">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full"></div>
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full group-hover:bg-primary transition-colors"></div>
                     <div>
                         <span class="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-tighter">2009 - 2020</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight">Secondary School Certificate</h4>
+                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-slate-300 transition-colors">Secondary School Certificate</h4>
                         <p class="text-slate-400 text-sm md:text-lg">RDA Lab. School and College, Bogura (RDALSCB)</p>
                     </div>
                 </div>
@@ -324,7 +446,10 @@
 
     <!-- Contact CTA -->
     <section id="contact" class="section-padding">
-        <div class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center">
+        <div class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center relative overflow-hidden card-hover">
+            <!-- Decorative circle behind -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 blur-3xl rounded-full -z-10 animate-pulse"></div>
+
             <h3 class="text-2xl md:text-4xl font-bold mb-6">Let's Build the Infrastructure of Tomorrow</h3>
             <p class="text-slate-400 mb-10 text-sm md:text-base max-w-xl mx-auto">
                 Currently open to networking and new opportunities in the Network Engineering and DevOps space.
@@ -332,25 +457,25 @@
             
             <div class="grid grid-cols-2 sm:flex sm:justify-center gap-6 md:gap-10">
                 <a href="mailto:jh786760@gmail.com" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:rotate-6 shadow-lg shadow-primary/20">
                         <i class="fas fa-envelope text-xl md:text-2xl"></i>
                     </div>
                     <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">Gmail</span>
                 </a>
                 <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:-rotate-6 shadow-lg shadow-primary/20">
                         <i class="fab fa-linkedin text-xl md:text-2xl"></i>
                     </div>
                     <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">LinkedIn</span>
                 </a>
                 <a href="https://github.com/jhasanbauetcse" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:rotate-6 shadow-lg shadow-primary/20">
                         <i class="fab fa-github text-xl md:text-2xl"></i>
                     </div>
                     <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">GitHub</span>
                 </a>
                 <a href="https://facebook.com/jhasan25" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:-rotate-6 shadow-lg shadow-primary/20">
                         <i class="fab fa-facebook text-xl md:text-2xl"></i>
                     </div>
                     <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">Facebook</span>
@@ -359,28 +484,201 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-600 text-[9px] md:text-[10px] font-mono tracking-widest uppercase px-6">
+    <footer class="py-12 text-center text-slate-600 text-[9px] md:text-[10px] font-mono tracking-widest uppercase px-6 relative z-10">
         &copy; 2025 // Junayed Hasan // Bogura // Engineered for Search Visibility
     </footer>
 
+    <!-- Animations Script -->
     <script>
-        const observerOptions = { threshold: 0.05 };
+        // 1. Intersection Observer for Sections
+        const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-8');
             observer.observe(section);
         });
+
+        // 2. Spotlight Logic
+        const spotlight = document.getElementById('global-spotlight');
+        window.addEventListener('mousemove', e => {
+            spotlight.style.setProperty('--x', `${e.clientX}px`);
+            spotlight.style.setProperty('--y', `${e.clientY}px`);
+        });
+
+        // 3. Scramble Text Effect for Roles
+        const roles = ['Network Engineer', 'DevOps Specialist', 'Researcher', 'Linux Enthusiast', 'System Admin'];
+        const el = document.getElementById('role-scrambler');
+        const chars = '!<>-_\\/[]{}—=+*^?#________';
+        
+        let roleIndex = 0;
+        
+        const scrambleText = (newText) => {
+            const oldText = el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => {
+                let frame = 0;
+                const queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    queue.push({ from, to, start, end });
+                }
+                
+                const cancel = requestAnimationFrame(function loop() {
+                    let output = '';
+                    let complete = 0;
+                    for (let i = 0; i < length; i++) {
+                        const { from, to, start, end } = queue[i];
+                        let char = from;
+                        if (frame >= end) {
+                            complete++;
+                            output += to;
+                        } else if (frame >= start) {
+                            if (!char || Math.random() < 0.28) {
+                                char = Math.random() < 0.5 ? chars[Math.floor(Math.random() * chars.length)] : chars[Math.floor(Math.random() * chars.length)];
+                            }
+                            output += `<span class="text-slate-600">${char}</span>`;
+                        } else {
+                            output += from;
+                        }
+                    }
+                    el.innerHTML = output;
+                    if (complete === length) {
+                        resolve();
+                    } else {
+                        frame++;
+                        requestAnimationFrame(loop);
+                    }
+                });
+            });
+            return promise;
+        };
+
+        const nextRole = () => {
+            roleIndex = (roleIndex + 1) % roles.length;
+            scrambleText(roles[roleIndex]).then(() => {
+                setTimeout(nextRole, 2500);
+            });
+        };
+
+        nextRole();
+
+        // 4. Network Particle Canvas Animation
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const mouse = { x: undefined, y: undefined };
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = undefined;
+            mouse.y = undefined;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8; 
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.size = Math.random() * 1.5 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                if (mouse.x != undefined) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) {
+                        const angle = Math.atan2(dy, dx);
+                        this.x -= Math.cos(angle) * 1; 
+                        this.y -= Math.sin(angle) * 1;
+                    }
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            let numberOfParticles = (canvas.width * canvas.height) / 10000; 
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 - distance/120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+                
+                if (mouse.x != undefined) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 200) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 - distance/200})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
     </script>
 </body>
-
 </html>
