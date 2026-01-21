@@ -19,10 +19,14 @@
                         gray: {
                             900: '#111827',
                             800: '#374151',
-                            600: '#4b5563',
-                            500: '#6b7280',
-                            300: '#d1d5db',
-                            100: '#f3f4f6',
+                            700: '#4b5563',
+                            600: '#6b7280',
+                            500: '#9ca3af',
+                            400: '#d1d5db',
+                            300: '#e5e7eb',
+                            200: '#f3f4f6',
+                            100: '#f9fafb',
+                            50: '#f9fafb',
                         }
                     }
                 }
@@ -85,22 +89,23 @@
             transition: all 0.2s;
         }
         .tool-badge:hover {
-            border-color: #d1d5db;
+            border-color: #9ca3af;
             background-color: #f3f4f6;
+            color: #111827;
         }
         .tool-badge i {
             font-size: 1rem;
+            color: #374151;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 md:py-10">
+<body class="bg-gray-200 text-gray-900 md:py-10">
 
     <div class="resume-paper p-6 md:p-[50px]">
         
         <header class="border-b-2 border-gray-900 pb-6 mb-8 flex flex-col-reverse md:flex-row justify-between items-start gap-6">
             <div class="w-full">
                 <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-2">Junayed Hasan</h1>
-                <p class="text-base md:text-lg text-gray-600 font-medium mb-4">Computer Science Undergraduate</p>
                 
                 <div class="flex flex-wrap gap-y-2 gap-x-4 md:gap-x-6 text-sm text-gray-600">
                     <div class="flex items-center gap-2 w-full sm:w-auto">
@@ -124,7 +129,7 @@
             
             <div class="shrink-0 self-center md:self-start mb-4 md:mb-0">
                 <img 
-                    src="image_d48680.png" 
+                    src="IMG_20251127_011356.png" 
                     alt="Junayed Hasan" 
                     class="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-gray-200 shadow-sm"
                     onerror="this.src='https://ui-avatars.com/api/?name=Junayed+Hasan&background=f3f4f6&color=111827&size=128'"
@@ -133,15 +138,14 @@
         </header>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Objective</h2>
-            <p class="text-sm leading-relaxed text-gray-700 text-justify">
-                Computer Science student with a rigorous academic focus on Network Engineering and Application Development. I have actively cultivated technical proficiency in <strong>Python</strong>, <strong>Android (Java)</strong>, and <strong>Network Infrastructure</strong> through comprehensive coursework and personal projects. Eager to join a technical team where I can contribute my skills in dynamic routing, backend logic, and system administration while further developing my professional expertise.
+            <p class="text-sm leading-relaxed text-gray-800 text-justify">
+                Computer Science student with a rigorous academic focus on Network Engineering and DevOps. I have actively cultivated technical proficiency in Network Infrastructure and DevOps. Eager to join a technical team where I can contribute my skills and professional expertise.
             </p>
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Research Interests</h2>
-            <div class="bg-blue-50 border-l-4 border-blue-900 p-4 rounded-r shadow-sm">
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-400 pb-1 mb-3 text-gray-900">Research Interests</h2>
+            <div class="bg-gray-100 border-l-4 border-gray-800 p-4 rounded-r shadow-sm">
                 <p class="text-sm leading-relaxed text-gray-800">
                     Aspiring networking researcher focused on <strong>NFV performance</strong>, <strong>resource contention</strong>, and <strong>virtualized network reliability</strong>.
                 </p>
@@ -149,21 +153,21 @@
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Key Projects</h2>
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-400 pb-1 mb-3 text-gray-900">Key Projects</h2>
             
             <div class="mb-4">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1">
                     <h3 class="font-bold text-gray-900 text-base">Recyclable Materials Management System</h3>
-                    <span class="text-xs text-gray-500 font-mono font-bold mt-1 sm:mt-0">ANDROID ARCHITECTURE</span>
+                    <span class="text-xs text-gray-600 font-mono font-bold mt-1 sm:mt-0">ANDROID ARCHITECTURE</span>
                 </div>
                 
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-600 mb-3">
-                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200"><i class="fab fa-android mr-1"></i>Android (Java)</span>
-                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200"><i class="fas fa-database mr-1"></i>Firebase NoSQL</span>
-                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200"><i class="fas fa-cloud mr-1"></i>Cloud Functions</span>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-gray-700 mb-3">
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-300"><i class="fab fa-android mr-1"></i>Android (Java)</span>
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-300"><i class="fas fa-database mr-1"></i>Firebase NoSQL</span>
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-300"><i class="fas fa-cloud mr-1"></i>Cloud Functions</span>
                 </div>
 
-                <ul class="list-disc list-outside ml-4 text-sm text-gray-700 leading-relaxed space-y-1">
+                <ul class="list-disc list-outside ml-4 text-sm text-gray-800 leading-relaxed space-y-1">
                     <li>Engineered a distributed logistics platform orchestrating the reverse supply chain of recyclable materials between three distinct stakeholders (Admin, Collector, Customer).</li>
                     <li>Implemented offline-first architecture using Firestore persistence, ensuring critical data integrity for field collectors in low-connectivity zones.</li>
                     <li>Designed a dynamic valuation algorithm that automates material pricing and calculates real-time incentives (gamification) based on live market rates and waste weight.</li>
@@ -172,52 +176,52 @@
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Technical Toolbox</h2>
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-400 pb-1 mb-3 text-gray-900">Technical Toolbox</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <h3 class="font-semibold text-xs text-gray-500 uppercase mb-3">Software Development</h3>
+                    <h3 class="font-semibold text-xs text-gray-600 uppercase mb-3">Software Development</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tool-badge"><i class="fab fa-python text-blue-600"></i> Python</span>
-                        <span class="tool-badge"><i class="fas fa-code text-blue-800"></i> C</span>
-                        <span class="tool-badge"><i class="fas fa-code text-blue-600"></i> C++</span>
-                        <span class="tool-badge"><i class="fas fa-layer-group text-green-700"></i> Django</span>
-                        <span class="tool-badge"><i class="fab fa-html5 text-orange-600"></i> HTML5</span>
-                        <span class="tool-badge"><i class="fab fa-css3-alt text-blue-500"></i> CSS3</span>
-                        <span class="tool-badge"><i class="fab fa-git-alt text-orange-600"></i> Git</span>
-                        <span class="tool-badge"><i class="fab fa-github text-black"></i> GitHub</span>
-                        <span class="tool-badge"><i class="fas fa-code text-blue-500"></i> VS Code</span>
-                        <span class="tool-badge"><i class="fab fa-android text-green-500"></i> Android Studio</span>
+                        <span class="tool-badge"><i class="fab fa-python"></i> Python</span>
+                        <span class="tool-badge"><i class="fas fa-code"></i> C</span>
+                        <span class="tool-badge"><i class="fas fa-code"></i> C++</span>
+                        <span class="tool-badge"><i class="fas fa-layer-group"></i> Django</span>
+                        <span class="tool-badge"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="tool-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="tool-badge"><i class="fab fa-git-alt"></i> Git</span>
+                        <span class="tool-badge"><i class="fab fa-github"></i> GitHub</span>
+                        <span class="tool-badge"><i class="fas fa-code"></i> VS Code</span>
+                        <span class="tool-badge"><i class="fab fa-android"></i> Android Studio</span>
                     </div>
                 </div>
 
                 <div>
-                    <h3 class="font-semibold text-xs text-gray-500 uppercase mb-3">Network Engineering & Infrastructure</h3>
+                    <h3 class="font-semibold text-xs text-gray-600 uppercase mb-3">Network Engineering & Infrastructure</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tool-badge border-blue-200 bg-blue-50 text-blue-800"><i class="fas fa-network-wired"></i> Network Architecture</span>
-                        <span class="tool-badge border-blue-200 bg-blue-50 text-blue-800"><i class="fas fa-server"></i> Net Devices & Transmission</span>
-                        <span class="tool-badge border-blue-200 bg-blue-50 text-blue-800"><i class="fas fa-project-diagram"></i> Addressing & Subnetting</span>
-                        <span class="tool-badge border-blue-200 bg-blue-50 text-blue-800"><i class="fas fa-sitemap"></i> LAN/VLAN Config</span>
-                        <span class="tool-badge border-blue-200 bg-blue-50 text-blue-800"><i class="fas fa-route"></i> Dynamic Routing (EIGRP/OSPF/BGP)</span>
+                        <span class="tool-badge border-gray-300 bg-gray-50 text-gray-800"><i class="fas fa-network-wired"></i> Network Architecture</span>
+                        <span class="tool-badge border-gray-300 bg-gray-50 text-gray-800"><i class="fas fa-server"></i> Net Devices & Transmission</span>
+                        <span class="tool-badge border-gray-300 bg-gray-50 text-gray-800"><i class="fas fa-project-diagram"></i> Addressing & Subnetting</span>
+                        <span class="tool-badge border-gray-300 bg-gray-50 text-gray-800"><i class="fas fa-sitemap"></i> LAN/VLAN Config</span>
+                        <span class="tool-badge border-gray-300 bg-gray-50 text-gray-800"><i class="fas fa-route"></i> Dynamic Routing (EIGRP/OSPF/BGP)</span>
                         
-                        <span class="tool-badge"><i class="fab fa-linux text-black"></i> Linux</span>
-                        <span class="tool-badge"><i class="fab fa-aws text-orange-500"></i> AWS</span>
-                        <span class="tool-badge"><i class="fab fa-docker text-blue-500"></i> Docker</span>
-                        <span class="tool-badge"><i class="fas fa-terminal text-gray-700"></i> Bash</span>
+                        <span class="tool-badge"><i class="fab fa-linux"></i> Linux</span>
+                        <span class="tool-badge"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="tool-badge"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tool-badge"><i class="fas fa-terminal"></i> Bash</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Education</h2>
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-400 pb-1 mb-3 text-gray-900">Education</h2>
             
             <div class="mb-5">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1">
                     <h3 class="font-bold text-gray-900 text-base">B.Sc. in Computer Science & Engineering</h3>
-                    <span class="text-sm font-medium text-gray-600 mt-1 sm:mt-0">Expected 2027</span>
+                    <span class="text-sm font-medium text-gray-600 mt-1 sm:mt-0">2023-Present</span>
                 </div>
-                <div class="text-sm text-gray-700 mb-2">Bangladesh Army University of Engineering and Technology (BAUET)</div>
+                <div class="text-sm text-gray-800 mb-2">Bangladesh Army University of Engineering & Technology (BAUET)</div>
             </div>
 
             <div class="mb-3">
@@ -225,69 +229,59 @@
                     <h3 class="font-bold text-gray-900 text-base">Higher Secondary Certificate (Science)</h3>
                     <span class="text-sm font-medium text-gray-600 mt-1 sm:mt-0">2022</span>
                 </div>
-                <div class="text-sm text-gray-700">Bogura Cantonment Public School & College (BCPSC)</div>
+                <div class="text-sm text-gray-800">Bogura Cantonment Public School & College (BCPSC)</div>
             </div>
         </section>
 
         <section class="mb-8">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Certifications</h2>
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-400 pb-1 mb-3 text-gray-900">Certifications</h2>
             
             <div class="space-y-4">
                 
                 <div class="border-l-2 border-gray-900 pl-4">
                     <div class="flex justify-between items-baseline mb-0.5">
                         <h3 class="font-bold text-gray-900 text-sm">AWS Certified Cloud Practitioner</h3>
-                        <span class="text-xs font-medium text-gray-500">2025</span>
+                        <span class="text-xs font-medium text-gray-600">2025</span>
                     </div>
-                    <div class="text-xs text-gray-600 font-medium mb-1">Amazon Web Services (AWS)</div>
-                    <div class="text-xs text-gray-500 italic">
-                        <span class="font-semibold not-italic text-gray-700">Skills Validated:</span> Cloud Concepts, Security & Compliance, Technology, Billing & Pricing.
+                    <div class="text-xs text-gray-700 font-medium mb-1">Amazon Web Services (AWS)</div>
+                    <div class="text-xs text-gray-600 italic">
+                        <span class="font-semibold not-italic text-gray-800">Skills Validated:</span> Cloud Concepts, Security & Compliance, Technology, Billing & Pricing.
                     </div>
                 </div>
 
                 <div class="border-l-2 border-gray-900 pl-4">
                     <div class="flex justify-between items-baseline mb-0.5">
                         <h3 class="font-bold text-gray-900 text-sm">Cisco Certified Network Associate (CCNA)</h3>
-                        <span class="text-xs font-medium text-gray-500">2024</span>
+                        <span class="text-xs font-medium text-gray-600">2024</span>
                     </div>
-                    <div class="text-xs text-gray-600 font-medium mb-1">Cisco Systems</div>
-                    <div class="text-xs text-gray-500 italic">
-                        <span class="font-semibold not-italic text-gray-700">Skills Validated:</span> Network Fundamentals, Network Access, IP Connectivity, IP Services.
+                    <div class="text-xs text-gray-700 font-medium mb-1">Cisco Systems</div>
+                    <div class="text-xs text-gray-600 italic">
+                        <span class="font-semibold not-italic text-gray-800">Skills Validated:</span> Network Fundamentals, Network Access, IP Connectivity, IP Services.
                     </div>
                 </div>
 
                 <div class="border-l-2 border-gray-900 pl-4">
                     <div class="flex justify-between items-baseline mb-0.5">
                         <h3 class="font-bold text-gray-900 text-sm">LPI Linux Essentials</h3>
-                        <span class="text-xs font-medium text-gray-500">2024</span>
+                        <span class="text-xs font-medium text-gray-600">2024</span>
                     </div>
-                    <div class="text-xs text-gray-600 font-medium mb-1">Linux Professional Institute (LPI)</div>
-                    <div class="text-xs text-gray-500 italic">
-                        <span class="font-semibold not-italic text-gray-700">Skills Validated:</span> Linux Command Line, Basic System Administration, Open Source Concepts.
+                    <div class="text-xs text-gray-700 font-medium mb-1">Linux Professional Institute (LPI)</div>
+                    <div class="text-xs text-gray-600 italic">
+                        <span class="font-semibold not-italic text-gray-800">Skills Validated:</span> Linux Command Line, Basic System Administration, Open Source Concepts.
                     </div>
                 </div>
 
                 <div class="border-l-2 border-gray-900 pl-4">
                     <div class="flex justify-between items-baseline mb-0.5">
                         <h3 class="font-bold text-gray-900 text-sm">PCAP – Certified Associate in Python Programming</h3>
-                        <span class="text-xs font-medium text-gray-500">2024</span>
+                        <span class="text-xs font-medium text-gray-600">2024</span>
                     </div>
-                    <div class="text-xs text-gray-600 font-medium mb-1">Python Institute</div>
-                    <div class="text-xs text-gray-500 italic">
-                        <span class="font-semibold not-italic text-gray-700">Skills Validated:</span> Control Flow, Data Collections, Functions, Modules, OOP.
+                    <div class="text-xs text-gray-700 font-medium mb-1">Python Institute</div>
+                    <div class="text-xs text-gray-600 italic">
+                        <span class="font-semibold not-italic text-gray-800">Skills Validated:</span> Control Flow, Data Collections, Functions, Modules, OOP.
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <section class="mb-6">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Professional Traits</h2>
-            <div class="flex flex-wrap gap-3 md:gap-4 text-sm text-gray-700">
-                <span class="bg-gray-100 px-3 py-1 rounded-full border border-gray-200">Fast Learner</span>
-                <span class="bg-gray-100 px-3 py-1 rounded-full border border-gray-200">Analytical Thinking</span>
-                <span class="bg-gray-100 px-3 py-1 rounded-full border border-gray-200">Adaptability</span>
-                <span class="bg-gray-100 px-3 py-1 rounded-full border border-gray-200">Problem Solving</span>
             </div>
         </section>
 
