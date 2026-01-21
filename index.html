@@ -1,684 +1,207 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Junayed Hasan | Network Engineer & DevOps Specialist in Bangladesh</title>
-    <meta name="description" content="Junayed Hasan is a CSE graduate specializing in NFV Research, Computer Networks, Linux Administration, and DevOps infrastructure. Based in Bogura, Bangladesh.">
-    <meta name="keywords" content="Junayed Hasan, DevOps, Network Engineer, NFV, Resource Contention, Virtual Network Functions, Linux, Shell Scripting, CSE, Bangladesh, Recyclable Materials Management System">
-    <meta name="author" content="Junayed Hasan">
-    
-    <!-- Tailwind & Fonts -->
+    <title>Resume | Junayed Hasan</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        surface: '#020617',
-                        accent: '#10b981',
-                    },
                     fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
                     },
-                    animation: {
-                        'float': 'float 20s ease-in-out infinite',
-                        'float-delayed': 'float 25s ease-in-out infinite reverse',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translate(0, 0)' },
-                            '50%': { transform: 'translate(30px, 50px)' },
+                    colors: {
+                        gray: {
+                            900: '#111827',
+                            800: '#1f2937',
+                            600: '#4b5563',
+                            500: '#6b7280',
+                            300: '#d1d5db',
+                            100: '#f3f4f6',
                         }
                     }
                 }
             }
         }
     </script>
-
     <style>
         body {
-            background-color: #020617;
-            color: #f8fafc;
-            overflow-x: hidden;
-            cursor: default; /* Custom cursor could be added here later */
+            background-color: #f3f4f6; /* Light gray background outside the paper */
+            -webkit-font-smoothing: antialiased;
         }
-
-        /* Moving Background Gradient Blobs */
-        .blob {
-            position: fixed;
-            filter: blur(80px);
-            z-index: 0;
-            opacity: 0.4;
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(99, 102, 241, 0.2);
-            animation: float 25s infinite alternate;
-        }
-        .blob-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(16, 185, 129, 0.15);
-            animation: float-delayed 30s infinite alternate;
-        }
-
-        /* Network Canvas */
-        #network-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .resume-paper {
+            background-color: white;
             width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
+            max-width: 210mm; /* A4 Width */
+            min-height: 297mm; /* A4 Height */
+            margin: 0 auto;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-
-        /* Global Spotlight Effect */
-        #global-spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-            background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(99, 102, 241, 0.08), transparent 40%);
-            mix-blend-mode: screen;
-        }
-
-        /* Cyber Grid Background - Full Page */
-        .cyber-grid {
-            position: fixed;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            mask-image: radial-gradient(circle at center, black 40%, transparent 100%); 
-            /* mask-image keeps it subtle in center, fading out */
-            z-index: 0;
-            pointer-events: none;
-            transform: perspective(1000px) rotateX(20deg) scale(1.5);
-            animation: grid-pan 60s linear infinite;
-        }
-        
-        @keyframes grid-pan {
-            0% { transform: perspective(1000px) rotateX(20deg) scale(1.5) translateY(0); }
-            100% { transform: perspective(1000px) rotateX(20deg) scale(1.5) translateY(50px); }
-        }
-
-        .glass {
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-        
-        /* Interactive Card Border Glow on Hover */
-        .glass::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: inherit;
-            border: 1px solid transparent;
-            background: linear-gradient(120deg, transparent, rgba(99, 102, 241, 0.3), transparent) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .glass:hover {
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-        
-        .glass:hover::after {
-            opacity: 1;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #2dd4bf 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradient-shift 5s linear infinite;
-        }
-        
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            background: rgba(15, 23, 42, 0.6);
-            box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.15);
-        }
-
-        .section-padding {
-            padding: 4rem 1rem;
-            position: relative;
-            z-index: 10;
-        }
-        @media (min-width: 768px) {
-            .section-padding {
-                padding: 6rem 1.5rem;
+        @media print {
+            body {
+                background-color: white;
+            }
+            .resume-paper {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: none;
             }
         }
-
-        .cursor-blink {
-            display: inline-block;
-            width: 10px;
-            height: 1.2em;
-            background-color: #10b981;
-            margin-left: 5px;
-            vertical-align: middle;
-            animation: blink 0.8s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        
-        /* Pulse for timeline dots */
-        .timeline-dot {
-            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
-            animation: pulse-dot 2s infinite;
-        }
-        @keyframes pulse-dot {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        /* Clean divider lines */
+        hr {
+            border-top: 1px solid #e5e7eb;
+            margin: 1.5rem 0;
         }
     </style>
 </head>
-<body class="selection:bg-primary/30 selection:text-primary-foreground relative">
+<body class="py-10 text-gray-900">
 
-    <!-- Global Interactive Elements -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="cyber-grid"></div>
-    <canvas id="network-canvas"></canvas>
-    <div id="global-spotlight"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-3 py-4 md:px-6">
-        <div class="max-w-6xl mx-auto glass rounded-2xl px-4 py-3 flex justify-between items-center bg-slate-900/40">
-            <div class="flex items-center gap-2">
-                <span class="text-primary font-bold text-lg md:text-xl tracking-tight">JH</span>
-                <span class="hidden lg:inline text-slate-500 font-mono text-[10px] tracking-[0.2em] uppercase">Junayed Hasan</span>
-            </div>
-            <div class="flex gap-4 md:gap-8 text-[11px] md:text-sm font-medium">
-                <a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a>
-                <a href="#projects" class="text-slate-400 hover:text-white transition-colors">Projects</a>
-                <a href="#research" class="text-slate-400 hover:text-white transition-colors">Research</a>
-                <a href="#education" class="text-slate-400 hover:text-white transition-colors">Edu</a>
-                <a href="#contact" class="text-primary hover:underline">Connect</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 pb-12 z-10">
-        <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
-            <!-- Profile Image -->
-            <div class="mb-6 md:mb-8 relative inline-block group">
-                <div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse group-hover:bg-primary/40 transition-all duration-500"></div>
-                <div class="relative w-28 h-28 md:w-40 md:h-40 rounded-full border-2 border-primary/30 p-1 bg-slate-900 shadow-2xl overflow-hidden">
-                    <img 
-                        src="IMG_20251127_011356.png" 
-                        alt="Junayed Hasan" 
-                        class="w-full h-full object-cover rounded-full profile-hex transition-transform duration-500 hover:scale-110"
-                        onerror="this.src='https://ui-avatars.com/api/?name=Junayed+Hasan&background=020617&color=6366f1&size=200'"
-                    >
+    <div class="resume-paper">
+        <!-- Header -->
+        <header class="border-b-2 border-gray-900 pb-6 mb-6 flex flex-col-reverse md:flex-row justify-between items-start gap-6">
+            <div class="w-full">
+                <h1 class="text-4xl font-bold uppercase tracking-tight mb-2">Junayed Hasan</h1>
+                <p class="text-lg text-gray-600 font-medium mb-4">Network Engineer & DevOps Specialist</p>
+                
+                <div class="flex flex-wrap gap-y-2 gap-x-6 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bogura, Bangladesh</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:jh786760@gmail.com" class="hover:underline text-gray-900">jh786760@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" class="hover:underline text-gray-900">LinkedIn Profile</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/jhasanbauetcse" class="hover:underline text-gray-900">github.com/jhasanbauetcse</a>
+                    </div>
                 </div>
             </div>
-
-            <p class="font-mono text-primary text-[10px] md:text-sm tracking-[0.3em] uppercase mb-4 opacity-80">Infrastructure & Research</p>
             
-            <!-- Static Strong Title -->
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight leading-tight mb-6">
-                Junayed <span class="gradient-text">Hasan</span>
-            </h1>
-
-            <!-- Dynamic Role Scrambler -->
-            <h2 class="text-lg md:text-2xl text-slate-300 font-light mb-10 tracking-wide h-12 flex justify-center items-center">
-                <span class="text-slate-500 mr-3 text-sm md:text-base font-mono">//</span>
-                <span id="role-scrambler" class="text-accent font-mono font-medium text-xl md:text-3xl"></span>
-                <span class="cursor-blink"></span>
-            </h2>
-            
-            <!-- Social Icons -->
-            <div class="flex justify-center gap-6 md:gap-8 mb-12">
-                <a href="mailto:jh786760@gmail.com" target="_blank" aria-label="Gmail" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" target="_blank" aria-label="LinkedIn" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/jhasanbauetcse" target="_blank" aria-label="GitHub" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://facebook.com/jhasan25" target="_blank" aria-label="Facebook" class="text-slate-400 hover:text-primary text-2xl md:text-3xl transition-all hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-facebook"></i>
-                </a>
+            <!-- Image Section -->
+            <div class="shrink-0 self-center md:self-start mb-4 md:mb-0">
+                <img 
+                    src="IMG_20251127_011356.png" 
+                    alt="Junayed Hasan" 
+                    class="w-32 h-32 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Junayed+Hasan&background=f3f4f6&color=111827&size=128'"
+                >
             </div>
+        </header>
 
-            <div class="flex justify-center">
-                <a href="#about" class="animate-bounce text-slate-600 hover:text-primary transition-colors">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Summary Section -->
-    <section id="about" class="section-padding">
-        <div class="max-w-4xl mx-auto">
-            <div class="glass p-6 md:p-12 rounded-3xl relative overflow-hidden group">
-                <h3 class="font-mono text-primary mb-6 flex items-center gap-2 relative z-10">
-                    <span class="w-8 h-[1px] bg-primary"></span> Profile Summary
-                </h3>
-                <p class="text-lg md:text-xl text-slate-300 leading-relaxed relative z-10">
-                    I have an <span class="text-white font-semibold underline decoration-primary/50 underline-offset-4 decoration-2">infrastructure-first mindset</span>—understanding traffic flow, system behavior, and deployment mechanics rather than relying on tools alone. My work is focused on computer networking, Linux systems, and DevOps, with a passion for building scalable, reliable digital services.
-                </p>
-                <p class="mt-6 text-slate-400 text-sm md:text-base relative z-10">
-                    Actively building depth in computer networks, cloud networking, and Linux administration with the long-term goal of operating production-grade systems.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="skills" class="section-padding">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Core <span class="text-primary">Expertise</span></h3>
-            
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <!-- Card 1 -->
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
-                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                        <i class="fas fa-network-wired text-primary text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Computer Networks</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">OSI models, traffic flow, routing fundamentals, and network architecture.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
-                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                        <i class="fab fa-linux text-primary text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Linux Mastery</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">System administration, terminal fluency, and server management.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
-                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                        <i class="fas fa-terminal text-primary text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">Shell Scripting</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">Bash automation and streamlining infrastructure workflows.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="glass p-6 md:p-8 rounded-2xl card-hover group">
-                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                        <i class="fas fa-infinity text-primary text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h4 class="text-lg md:text-xl font-bold mb-3 group-hover:text-primary transition-colors">DevOps Tools</h4>
-                    <p class="text-slate-400 text-xs md:text-sm">Exploration of CI/CD, deployment mechanics, and cloud-native concepts.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Interests Section -->
-    <section id="research" class="section-padding">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Research <span class="text-primary">Interests</span></h3>
-            <div class="glass p-6 md:p-12 rounded-3xl border-l-4 border-l-primary card-hover">
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <div class="bg-primary/10 p-4 rounded-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-microscope text-2xl md:text-3xl text-primary"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xl md:text-2xl font-bold mb-3">Performance Impact of Resource Contention on Virtual Network Functions (VNFs)</h4>
-                        <p class="text-primary font-mono text-[10px] md:text-sm mb-4 uppercase tracking-widest">NFV & Cloud Infrastructure Research</p>
-                        <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-                            Investigating how shared physical resources in virtualized environments affect the stability and throughput of network functions. This research focuses on optimizing resource allocation to ensure High Availability (HA) and predictable performance in NFV-based architectures.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-padding">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center">Featured <span class="text-primary">Projects</span></h3>
-            <div class="grid gap-6 md:gap-8">
-                <div class="glass p-6 md:p-8 rounded-3xl card-hover flex flex-col md:flex-row gap-6 md:gap-8 items-center text-center md:text-left group">
-                    <div class="w-full md:w-1/3 aspect-video bg-slate-900 rounded-xl flex items-center justify-center border border-white/5 shrink-0 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors"></div>
-                        <i class="fab fa-android text-5xl md:text-6xl text-accent opacity-50 group-hover:scale-110 group-hover:opacity-80 transition-all duration-500"></i>
-                    </div>
-                    <div class="w-full md:w-2/3">
-                        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start mb-4 gap-2">
-                            <h4 class="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">Recyclable Materials Management System</h4>
-                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-[10px] font-mono whitespace-nowrap border border-accent/20">Mobile App</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 text-sm md:text-base">
-                            A comprehensive Android application built with <span class="text-white">Java</span> designed to streamline the lifecycle of recyclable waste. Features include user-friendly inventory management and system tracking for sustainable material handling.
-                        </p>
-                        <div class="flex flex-wrap justify-center md:justify-start gap-2">
-                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">Java</span>
-                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">Android Studio</span>
-                            <span class="text-[10px] md:text-xs font-mono text-slate-400 bg-slate-800/50 border border-slate-700 px-2 py-1 rounded hover:border-accent/50 hover:text-accent transition-colors">SQLite</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section-padding">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-16 text-center">Academic <span class="text-primary">Timeline</span></h3>
-            
-            <div class="relative border-l-2 border-slate-800 ml-6 space-y-12">
-                <!-- University -->
-                <div class="relative pl-8 md:pl-10 group">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-primary rounded-full timeline-dot group-hover:bg-accent transition-colors"></div>
-                    <div>
-                        <span class="text-primary font-mono text-[10px] md:text-sm uppercase tracking-tighter group-hover:text-accent transition-colors">July 2023-Present</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-white transition-colors">BSc in Computer Science Engineering</h4>
-                        <p class="text-slate-400 text-sm md:text-lg">Bangladesh Army University of Engineering and Technology (BAUET)</p>
-                    </div>
-                </div>
-
-                <!-- HSC -->
-                <div class="relative pl-8 md:pl-10 group">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full group-hover:bg-primary transition-colors"></div>
-                    <div>
-                        <span class="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-tighter">2020 - 2022</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-slate-300 transition-colors">Higher School Certificate (Science)</h4>
-                        <p class="text-slate-400 text-sm md:text-lg">Bogura Cantonment Public School & College (BCPSC)</p>
-                    </div>
-                </div>
-
-                <!-- SSC -->
-                <div class="relative pl-8 md:pl-10 group">
-                    <div class="absolute -left-[9px] top-1 w-4 h-4 bg-slate-700 rounded-full group-hover:bg-primary transition-colors"></div>
-                    <div>
-                        <span class="text-slate-500 font-mono text-[10px] md:text-sm uppercase tracking-tighter">2009 - 2020</span>
-                        <h4 class="text-lg md:text-2xl font-bold mt-1 leading-tight group-hover:text-slate-300 transition-colors">Secondary School Certificate</h4>
-                        <p class="text-slate-400 text-sm md:text-lg">RDA Lab. School and College, Bogura (RDALSCB)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section id="contact" class="section-padding">
-        <div class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-center relative overflow-hidden card-hover">
-            <!-- Decorative circle behind -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 blur-3xl rounded-full -z-10 animate-pulse"></div>
-
-            <h3 class="text-2xl md:text-4xl font-bold mb-6">Let's Build the Infrastructure of Tomorrow</h3>
-            <p class="text-slate-400 mb-10 text-sm md:text-base max-w-xl mx-auto">
-                Currently open to networking and new opportunities in the Network Engineering and DevOps space.
+        <!-- Professional Summary -->
+        <section class="mb-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Professional Summary</h2>
+            <p class="text-sm leading-relaxed text-gray-700 text-justify">
+                Computer Science Engineering graduate with an infrastructure-first mindset, focusing on computer networking, Linux systems, and DevOps. Specialized in understanding traffic flow, system behavior, and deployment mechanics to build scalable, reliable digital services. Actively building depth in cloud networking and Linux administration with the goal of operating production-grade systems.
             </p>
-            
-            <div class="grid grid-cols-2 sm:flex sm:justify-center gap-6 md:gap-10">
-                <a href="mailto:jh786760@gmail.com" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:rotate-6 shadow-lg shadow-primary/20">
-                        <i class="fas fa-envelope text-xl md:text-2xl"></i>
-                    </div>
-                    <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">Gmail</span>
-                </a>
-                <a href="https://www.linkedin.com/in/junayed-hasan-1bb3b11a3" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:-rotate-6 shadow-lg shadow-primary/20">
-                        <i class="fab fa-linkedin text-xl md:text-2xl"></i>
-                    </div>
-                    <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">LinkedIn</span>
-                </a>
-                <a href="https://github.com/jhasanbauetcse" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:rotate-6 shadow-lg shadow-primary/20">
-                        <i class="fab fa-github text-xl md:text-2xl"></i>
-                    </div>
-                    <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">GitHub</span>
-                </a>
-                <a href="https://facebook.com/jhasan25" target="_blank" class="group flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 flex items-center justify-center group-hover:bg-primary transition-all group-hover:-rotate-6 shadow-lg shadow-primary/20">
-                        <i class="fab fa-facebook text-xl md:text-2xl"></i>
-                    </div>
-                    <span class="text-[10px] font-mono uppercase text-slate-500 group-hover:text-white transition-colors">Facebook</span>
-                </a>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="mb-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Core Competencies</h2>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Computer Networks</h3>
+                    <p class="text-gray-600">OSI models, traffic flow analysis, routing fundamentals, network architecture.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Linux Administration</h3>
+                    <p class="text-gray-600">System management, terminal fluency, server configuration, shell scripting (Bash).</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">DevOps Practices</h3>
+                    <p class="text-gray-600">CI/CD pipelines, infrastructure workflows, cloud-native concepts.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Infrastructure</h3>
+                    <p class="text-gray-600">Resource allocation, High Availability (HA), Virtual Network Functions (VNF).</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="py-12 text-center text-slate-600 text-[9px] md:text-[10px] font-mono tracking-widest uppercase px-6 relative z-10">
-        &copy; 2025 // Junayed Hasan // Bogura // Engineered for Search Visibility
-    </footer>
+        <!-- Research -->
+        <section class="mb-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Research & Publications</h2>
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline mb-1">
+                    <h3 class="font-bold text-gray-900">Performance Impact of Resource Contention on VNFs</h3>
+                    <span class="text-xs text-gray-500 font-mono">NFV & CLOUD INFRASTRUCTURE</span>
+                </div>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    Investigated how shared physical resources in virtualized environments affect the stability and throughput of Virtual Network Functions (VNFs). The research focused on optimizing resource allocation to ensure High Availability (HA) and predictable performance in NFV-based architectures.
+                </p>
+            </div>
+        </section>
 
-    <!-- Animations Script -->
-    <script>
-        // 1. Intersection Observer for Sections
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-8');
-                }
-            });
-        }, observerOptions);
+        <!-- Projects -->
+        <section class="mb-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Key Projects</h2>
+            <div class="mb-4">
+                <div class="flex justify-between items-baseline mb-1">
+                    <h3 class="font-bold text-gray-900">Recyclable Materials Management System</h3>
+                    <span class="text-xs text-gray-500 font-mono">ANDROID APP (JAVA)</span>
+                </div>
+                <p class="text-sm text-gray-700 mb-2">
+                    Developed a comprehensive Android application to streamline the lifecycle of recyclable waste. Implemented user-friendly inventory management and system tracking for sustainable material handling.
+                </p>
+                <div class="flex gap-2 text-xs font-mono text-gray-600">
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200">Java</span>
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200">Android Studio</span>
+                    <span class="bg-gray-100 px-2 py-0.5 rounded border border-gray-200">SQLite</span>
+                </div>
+            </div>
+        </section>
 
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-8');
-            observer.observe(section);
-        });
-
-        // 2. Spotlight Logic
-        const spotlight = document.getElementById('global-spotlight');
-        window.addEventListener('mousemove', e => {
-            spotlight.style.setProperty('--x', `${e.clientX}px`);
-            spotlight.style.setProperty('--y', `${e.clientY}px`);
-        });
-
-        // 3. Scramble Text Effect for Roles
-        const roles = ['Network Engineer', 'DevOps Specialist', 'Researcher', 'Linux Enthusiast', 'System Admin'];
-        const el = document.getElementById('role-scrambler');
-        const chars = '!<>-_\\/[]{}—=+*^?#________';
-        
-        let roleIndex = 0;
-        
-        const scrambleText = (newText) => {
-            const oldText = el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise((resolve) => {
-                let frame = 0;
-                const queue = [];
-                for (let i = 0; i < length; i++) {
-                    const from = oldText[i] || '';
-                    const to = newText[i] || '';
-                    const start = Math.floor(Math.random() * 40);
-                    const end = start + Math.floor(Math.random() * 40);
-                    queue.push({ from, to, start, end });
-                }
-                
-                const cancel = requestAnimationFrame(function loop() {
-                    let output = '';
-                    let complete = 0;
-                    for (let i = 0; i < length; i++) {
-                        const { from, to, start, end } = queue[i];
-                        let char = from;
-                        if (frame >= end) {
-                            complete++;
-                            output += to;
-                        } else if (frame >= start) {
-                            if (!char || Math.random() < 0.28) {
-                                char = Math.random() < 0.5 ? chars[Math.floor(Math.random() * chars.length)] : chars[Math.floor(Math.random() * chars.length)];
-                            }
-                            output += `<span class="text-slate-600">${char}</span>`;
-                        } else {
-                            output += from;
-                        }
-                    }
-                    el.innerHTML = output;
-                    if (complete === length) {
-                        resolve();
-                    } else {
-                        frame++;
-                        requestAnimationFrame(loop);
-                    }
-                });
-            });
-            return promise;
-        };
-
-        const nextRole = () => {
-            roleIndex = (roleIndex + 1) % roles.length;
-            scrambleText(roles[roleIndex]).then(() => {
-                setTimeout(nextRole, 2500);
-            });
-        };
-
-        nextRole();
-
-        // 4. Network Particle Canvas Animation
-        const canvas = document.getElementById('network-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const mouse = { x: undefined, y: undefined };
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-        window.addEventListener('mouseout', () => {
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.8; 
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.size = Math.random() * 1.5 + 0.5;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-                if (mouse.x != undefined) {
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 150) {
-                        const angle = Math.atan2(dy, dx);
-                        this.x -= Math.cos(angle) * 1; 
-                        this.y -= Math.sin(angle) * 1;
-                    }
-                }
-            }
-
-            draw() {
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            let numberOfParticles = (canvas.width * canvas.height) / 10000; 
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        <!-- Education -->
+        <section class="mb-6">
+            <h2 class="text-sm font-bold uppercase tracking-widest border-b border-gray-300 pb-1 mb-3 text-gray-900">Education</h2>
             
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+            <div class="mb-3">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="font-bold text-gray-900">BSc in Computer Science Engineering</h3>
+                    <span class="text-sm font-medium text-gray-600">Jul 2023 – Present</span>
+                </div>
+                <div class="text-sm text-gray-700">Bangladesh Army University of Engineering and Technology (BAUET)</div>
+            </div>
 
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            <div class="mb-3">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="font-bold text-gray-900">Higher School Certificate (Science)</h3>
+                    <span class="text-sm font-medium text-gray-600">2020 – 2022</span>
+                </div>
+                <div class="text-sm text-gray-700">Bogura Cantonment Public School & College (BCPSC)</div>
+            </div>
 
-                    if (distance < 120) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 - distance/120})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-                
-                if (mouse.x != undefined) {
-                    const dx = particles[i].x - mouse.x;
-                    const dy = particles[i].y - mouse.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 200) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 - distance/200})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        }
+            <div>
+                <div class="flex justify-between items-baseline">
+                    <h3 class="font-bold text-gray-900">Secondary School Certificate</h3>
+                    <span class="text-sm font-medium text-gray-600">2009 – 2020</span>
+                </div>
+                <div class="text-sm text-gray-700">RDA Lab. School and College, Bogura</div>
+            </div>
+        </section>
 
-        initParticles();
-        animate();
-    </script>
+        <!-- Footer for Print Context -->
+        <div class="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-gray-400">
+            <p>&copy; 2025 Junayed Hasan. All rights reserved.</p>
+        </div>
+    </div>
+
 </body>
 </html>
+
+
